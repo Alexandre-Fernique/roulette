@@ -1,24 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import { Wheel } from 'react-custom-roulette'
+import 'react-roulette-pro/dist/index.css';
+
+const data = [
+  { option: 'FR'},
+  { option: 'EN'},
+  { option: 'IT'},
+  { option: 'FR'},
+  { option: 'EN'},
+  { option: 'IT'},
+  { option: 'FR'},
+  { option: 'EN'},
+  { option: 'IT'},
+]
+
+
 
 function App() {
-  return (
+    const [spin,setSpin]=useState(false)
+    return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="test test2">
+        <Wheel
+            mustStartSpinning={spin}
+            prizeNumber={3}
+            data={data}
+            backgroundColors={['#3e3e3e']}
+            textColors={['#ffffff']}
+        />
+        <button  onClick={()=>{setSpin(true)}}>Lancer</button>
+      </div>
     </div>
   );
 }
